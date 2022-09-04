@@ -75,3 +75,56 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+main {
+  display: flex;
+  width: 200px;
+}
+
+.symbol {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+}
+
+.rock {
+  background-image: url(/img/raised_fist_flat_default.svg);
+  transform: rotate(-90deg) scaleY(-1) scale(0.9);
+}
+.opponent .rock {
+  transform: rotate(-90deg) scale(0.9);
+}
+
+.paper {
+  background-image: url(/img/raised_hand_flat_default.svg);
+  transform: rotate(-90deg) scaleY(-1);
+}
+.opponent .paper {
+  transform: rotate(-90deg);
+}
+
+.scissor {
+  background-image: url(/img/victory_hand_flat_default.svg);
+  transform: rotate(-90deg) scaleY(-1);
+}
+.opponent .scissor {
+  transform: rotate(-90deg);
+}
+
+.lizard {
+  background-image: url(/img/lizard_flat.svg);
+  transform: rotate(90deg) scaleX(-1);
+}
+.opponent .lizard {
+  transform: rotate(-90deg);
+}
+
+.spock {
+  background-image: url(/img/vulcan_salute_flat_default.svg);
+  transform: scaleX(-1);
+}
+.opponent .spock {
+  transform: none;
+}
