@@ -22,6 +22,7 @@ export default class Game
         view.attachToDom(this.appMount);
 
         const game = new RPSLSGame();
+        view.setSymbols(game.symbols);
 
         view.onClick((symbol: string) => {
             const opponent = game.draw();

@@ -201,6 +201,8 @@ main {
   font-size: xx-large;
   margin: 20px 5px;
   font-weight: bold;
+
+  transition: color 0.3s;
 }
 
 .outcome.win {

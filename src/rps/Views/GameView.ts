@@ -31,6 +31,26 @@ export default class GameView extends View
         `;
     }
 
+    public setSymbols(symbols: string[]) {
+        // Clear symbols, just to be sure
+        document.querySelectorAll('.you .symbol').forEach((element) => {
+            element.remove();
+        });
+
+        // Add random as a constant at the end
+        symbols.push('random');
+
+        // Append each symbol to the DOM
+        const list = document.querySelector('.you') as HTMLElement;
+        symbols.forEach((symbol) => {
+            let element = document.createElement('i');
+            element.classList.value = `symbol ${symbol}`;
+            element.dataset.symbol = symbol;
+
+            list.appendChild(element);
+        });
+    }
+
     public revealOpponentsChoice(symbol: string) {
         const coin = document.querySelector('#opponent-weapon')!;
 
@@ -61,23 +81,18 @@ export default class GameView extends View
         document.querySelectorAll('.you .symbol').forEach((element) => {
             element.addEventListener('click', (event) => {
                 let element = event.currentTarget as HTMLElement;
-                let symbol = element.dataset.symbol;
+                let symbol = element.dataset.symbol!;
 
                 if (symbol === 'random') {
                     const allSymbols = document.querySelectorAll('.you .symbol:not(.random)');
                     element = allSymbols[Math.floor(Math.random() * allSymbols.length)] as HTMLElement;
-                    symbol = element.dataset.symbol;
+                    symbol = element.dataset.symbol!;
                 }
 
                 document.querySelectorAll('.symbol.selected').forEach((element) => {
                     element.classList.remove('selected');
                 });
                 element.classList.add('selected');
-
-                if (typeof symbol === 'undefined') {
-                    console.error('ERROR: Invalid Button');
-                    return;
-                }
 
                 closure(symbol);
             });

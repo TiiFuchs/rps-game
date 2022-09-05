@@ -3,7 +3,7 @@ import Outcome from "../Outcome";
 export default class Logic
 {
 
-    protected symbols: string[];
+    public readonly symbols: string[];
 
     protected rules: {[key: string]: string[]};
 
