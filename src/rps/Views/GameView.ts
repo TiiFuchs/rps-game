@@ -12,17 +12,12 @@ export default class GameView extends View
             <main>
                 <section class="you">
                     <h2>You</h2>
-                    <i class="symbol rock" data-symbol="rock"></i>
-                    <i class="symbol paper" data-symbol="paper"></i>
-                    <i class="symbol scissor" data-symbol="scissor"></i>
-                    <i class="symbol lizard" data-symbol="lizard"></i>
-                    <i class="symbol spock" data-symbol="spock"></i>
-                    <i class="symbol random" data-symbol="random"></i>
+                    <i class="symbol unknown"></i>
                 </section>
 
                 <section class="opponent">
                     <h2>Opponent</h2>
-                    <span id="opponent-weapon" class="coin">
+                    <span class="coin">
                         <span class="front"><i class="symbol unknown"></i></span>
                         <span class="back"><i class="symbol unknown"></i></span>
                     </span>
@@ -52,16 +47,20 @@ export default class GameView extends View
     }
 
     public revealOpponentsChoice(symbol: string) {
-        const coin = document.querySelector('#opponent-weapon')!;
+        const coin = document.querySelector('.opponent .coin')!;
+        
+        if (! coin.classList.contains('flipped')) { // Coin shows front
 
-        if (! coin.classList.contains('flipped')) {
             const weapon = coin.querySelector('.back > .symbol')!;
             weapon.classList.value = `symbol ${symbol}`;
             coin.classList.add('flipped');
-        } else {
+        
+        } else { // Coin shows back
+
             const weapon = coin.querySelector('.front > .symbol')!;
             weapon.classList.value = `symbol ${symbol}`;
             coin.classList.remove('flipped');
+
         }
     }
 

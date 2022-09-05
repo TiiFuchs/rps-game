@@ -1,3 +1,4 @@
+import RPSGame from "./Logic/RPSGame";
 import RPSLSGame from "./Logic/RPSLSGame";
 import GameView from "./Views/GameView";
 import StartView from "./Views/StartView";
@@ -29,9 +30,7 @@ export default class Game
             view.revealOpponentsChoice(opponent);
 
             const result = game.evaluate(symbol, opponent);
-            setTimeout(() => {
-                view.setOutcome(result);
-            }, 600);
+            view.setOutcome(result);
         });
     }
  
