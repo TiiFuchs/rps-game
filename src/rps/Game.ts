@@ -1,3 +1,4 @@
+import RPSLSGame from "./Logic/RPSLSGame";
 import GameView from "./Views/GameView";
 import StartView from "./Views/StartView";
 
@@ -19,6 +20,18 @@ export default class Game
     startGame() {
         const view = new GameView();
         view.attachToDom(this.appMount);
+
+        const game = new RPSLSGame();
+
+        view.onClick((symbol: string) => {
+            const opponent = game.draw();
+            view.revealOpponentsChoice(opponent);
+
+            const result = game.evaluate(symbol, opponent);
+            setTimeout(() => {
+                alert(result);
+            }, 600);
+        });
     }
  
 }
