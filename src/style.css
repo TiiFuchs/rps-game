@@ -110,7 +110,11 @@ main {
   transition: opacity 0.5s;
 }
 
-.you:has(.symbol.selected) .symbol:not(.selected) {
+.symbol.random {
+  opacity: 0.7;
+}
+
+.you:has(.symbol.selected) .symbol:not(.selected):not(.random) {
   opacity: 0.3;
 }
 
@@ -191,4 +195,17 @@ main {
 
 .coin > .back {
   transform: rotateY(180deg);
+}
+
+.outcome {
+  font-size: xx-large;
+  margin: 20px 5px;
+  font-weight: bold;
+}
+
+.outcome.win {
+  color: #7aff7a;
+}
+.outcome.loss {
+  color: #ff6262;
 }

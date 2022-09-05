@@ -1,3 +1,4 @@
+import Outcome from "../Outcome";
 import View from "./View";
 
 export default class GameView extends View
@@ -5,6 +6,9 @@ export default class GameView extends View
 
     public render(): string {
         return `
+            <header class="outcome">
+                CHOOSE YOUR WEAPON
+            </header>
             <main>
                 <section class="you">
                     <h2>You</h2>
@@ -41,11 +45,29 @@ export default class GameView extends View
         }
     }
 
+    outcomeText = {
+        [Outcome.Win]: 'You won',
+        [Outcome.Loss]: 'You lost',
+        [Outcome.Tie]: 'Tie'
+    };
+
+    public setOutcome(outcome: Outcome) {
+        const heading = document.querySelector('.outcome')!;
+        heading.classList.value = `outcome ${outcome}`;
+        heading.textContent = this.outcomeText[outcome];
+    }
+
     public onClick(closure: (symbol: string) => void) {
         document.querySelectorAll('.you .symbol').forEach((element) => {
             element.addEventListener('click', (event) => {
-                const element = event.currentTarget as HTMLElement;
-                const symbol = element.dataset.symbol;
+                let element = event.currentTarget as HTMLElement;
+                let symbol = element.dataset.symbol;
+
+                if (symbol === 'random') {
+                    const allSymbols = document.querySelectorAll('.you .symbol:not(.random)');
+                    element = allSymbols[Math.floor(Math.random() * allSymbols.length)] as HTMLElement;
+                    symbol = element.dataset.symbol;
+                }
 
                 document.querySelectorAll('.symbol.selected').forEach((element) => {
                     element.classList.remove('selected');

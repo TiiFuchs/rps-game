@@ -1,4 +1,4 @@
-import Result from "../Result";
+import Outcome from "../Outcome";
 
 export default class Logic
 {
@@ -18,19 +18,19 @@ export default class Logic
         return this.symbols[Math.floor(Math.random() * this.symbols.length)];
     }
 
-    evaluate(own: string, opponent: string): Result
+    evaluate(own: string, opponent: string): Outcome
     {
         if (own === opponent) {
 
-            return Result.Tie;
+            return Outcome.Tie;
 
         } else if (this.rules[own].includes(opponent)) {
 
-            return Result.Win;
+            return Outcome.Win;
 
         } else {
 
-            return Result.Loss;
+            return Outcome.Loss;
 
         }
     }

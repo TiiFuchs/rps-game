@@ -29,7 +29,7 @@ export default class Game
 
             const result = game.evaluate(symbol, opponent);
             setTimeout(() => {
-                alert(result);
+                view.setOutcome(result);
             }, 600);
         });
     }
