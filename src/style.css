@@ -159,12 +159,12 @@ main {
 }
 
 .unknown {
-  background-image: url(/public/img/white_question_mark_flat.svg);
+  background-image: url(/img/white_question_mark_flat.svg);
   border-color: #9b9b9b;
 }
 
 .random {
-  background-image: url(/public/img/game_die_flat.svg);
+  background-image: url(/img/game_die_flat.svg);
   border-color: #e1d9ec;
 }
 
