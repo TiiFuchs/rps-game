@@ -32,18 +32,21 @@ export default class GameView extends View
             element.remove();
         });
 
-        // Add random as a constant at the end
-        symbols.push('random');
-
         // Append each symbol to the DOM
         const list = document.querySelector('.you') as HTMLElement;
-        symbols.forEach((symbol) => {
-            let element = document.createElement('i');
-            element.classList.value = `symbol ${symbol}`;
-            element.dataset.symbol = symbol;
+        symbols.forEach((symbol) => list.appendChild(this.createSymbol(symbol)));
 
-            list.appendChild(element);
-        });
+        // Add random as a constant at the end
+        list.appendChild(this.createSymbol('random'));
+    }
+
+    protected createSymbol(symbol: string): HTMLElement {
+        const element = document.createElement('i');
+
+        element.classList.value = `symbol ${symbol}`;
+        element.dataset.symbol = symbol;
+
+        return element;
     }
 
     public revealOpponentsChoice(symbol: string) {
