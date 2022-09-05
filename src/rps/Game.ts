@@ -1,4 +1,3 @@
-import RPSGame from "./Logic/RPSGame";
 import RPSLSGame from "./Logic/RPSLSGame";
 import GameView from "./Views/GameView";
 import StartView from "./Views/StartView";
