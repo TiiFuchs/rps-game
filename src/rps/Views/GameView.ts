@@ -7,9 +7,11 @@ export default class GameView extends View
     public render(): string {
         return `
             <button class="menu"><i class="icon left-arrow"></i> Back to menu</button>
+
             <header class="outcome">
                 CHOOSE YOUR WEAPON
             </header>
+            
             <main>
                 <section class="opponent">
                     <h2>Opponent</h2>
