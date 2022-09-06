@@ -40,6 +40,10 @@ export default class Game
 
         view.setSymbols(game.symbols);
 
+        view.onMenu(() => {
+            this.start();
+        });
+
         view.onClick((symbol: string) => {
             const opponent = game.draw();
             view.revealOpponentsChoice(opponent);

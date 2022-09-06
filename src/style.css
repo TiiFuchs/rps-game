@@ -190,6 +190,21 @@ main {
 
 
 
+.menu {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.menu .icon {
+  margin: 0 0.5rem 0 0;
+}
+
+
+
 .rock {
   background-image: url(/img/raised_fist_flat_default.svg);
   transform: rotate(-90deg) scaleY(-1);
@@ -238,6 +253,10 @@ main {
 .random {
   background-image: url(/img/game_die_flat.svg);
   border-color: #e1d9ec;
+}
+
+.left-arrow {
+  background-image: url(/img/left_arrow_flat.svg);
 }
 
 @media (prefers-color-scheme: light) {

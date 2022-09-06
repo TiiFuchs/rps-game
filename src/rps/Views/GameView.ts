@@ -6,6 +6,7 @@ export default class GameView extends View
 
     public render(): string {
         return `
+            <button class="menu"><i class="icon left-arrow"></i> Back to menu</button>
             <header class="outcome">
                 CHOOSE YOUR WEAPON
             </header>
@@ -84,8 +85,12 @@ export default class GameView extends View
         heading.textContent = this.outcomeText[outcome];
     }
 
+    public onMenu(closure: () => void) {
+        document.querySelector<HTMLButtonElement>('.menu')?.addEventListener('click', () => closure());
+    }
+
     public onClick(closure: (symbol: string) => void) {
-        document.querySelectorAll('.you .symbol').forEach((element) => {
+        document.querySelectorAll<HTMLElement>('.you .symbol')?.forEach((element) => {
             element.addEventListener('click', (event) => {
                 let element = event.currentTarget as HTMLElement;
                 let symbol = element.dataset.symbol!;
