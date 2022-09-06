@@ -41,11 +41,6 @@ h1 {
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 header {
   min-height: 80px;
