@@ -75,12 +75,6 @@ export default class GameView extends View
         }
     }
 
-    outcomeText = {
-        [Outcome.Win]: 'You won',
-        [Outcome.Loss]: 'You lost',
-        [Outcome.Tie]: 'Tie'
-    };
-
     public setOutcome(outcome: Outcome, description: string) {
         const heading = document.querySelector('.outcome')!;
         heading.classList.value = `outcome ${outcome}`;
