@@ -11,7 +11,7 @@ export default class GameView extends View
             <header class="outcome">
                 CHOOSE YOUR WEAPON
             </header>
-            
+
             <main>
                 <section class="opponent">
                     <h2>Opponent</h2>
@@ -81,10 +81,10 @@ export default class GameView extends View
         [Outcome.Tie]: 'Tie'
     };
 
-    public setOutcome(outcome: Outcome) {
+    public setOutcome(outcome: Outcome, description: string) {
         const heading = document.querySelector('.outcome')!;
         heading.classList.value = `outcome ${outcome}`;
-        heading.textContent = this.outcomeText[outcome];
+        heading.textContent = description;
     }
 
     public onMenu(closure: () => void) {

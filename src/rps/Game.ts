@@ -49,7 +49,8 @@ export default class Game
             view.revealOpponentsChoice(opponent);
 
             const result = game.evaluate(symbol, opponent);
-            view.setOutcome(result);
+            const description = game.describe(symbol, opponent);
+            view.setOutcome(result, description);
         });
     }
  
