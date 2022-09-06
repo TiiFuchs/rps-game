@@ -1,0 +1,7 @@
+version: '3'
+services:
+  rps:
+    build: .
+    image: rps
+    ports:
+      - 8080:80
