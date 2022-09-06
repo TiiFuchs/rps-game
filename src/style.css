@@ -40,8 +40,19 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+header {
+  min-height: 80px;
+  line-height: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 button {
@@ -78,17 +89,21 @@ button:focus-visible {
 
 main {
   display: flex;
-  justify-content: space-between;
-  min-width: 400px;
-
-  perspective: 1000px;
+  flex-direction: column;
 }
 
 .you, .opponent {
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 200px;
+}
+
+.you .symbols, .opponent .symbols {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 400px;
 }
 
 .you .symbol {
@@ -117,6 +132,58 @@ main {
 .you:has(.symbol.selected) .symbol:not(.selected):not(.random) {
   opacity: 0.3;
 }
+
+
+
+
+.coin {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+  width: 101px;
+  height: 101px;
+}
+.coin.flipped {
+  transform: rotateY(180deg);
+}
+
+.coin > .front, .coin > .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.coin > .front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.coin > .back {
+  transform: rotateY(180deg);
+}
+
+
+
+
+.outcome {
+  font-size: xx-large;
+  margin: 20px 5px;
+  font-weight: bold;
+
+  transition: color 0.3s;
+}
+
+.outcome.win {
+  color: #7aff7a;
+}
+.outcome.loss {
+  color: #ff6262;
+}
+
+
 
 .rock {
   background-image: url(/img/raised_fist_flat_default.svg);
@@ -166,48 +233,4 @@ main {
 .random {
   background-image: url(/img/game_die_flat.svg);
   border-color: #e1d9ec;
-}
-
-.coin {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-
-  position: relative;
-  width: 101px;
-  height: 101px;
-}
-.coin.flipped {
-  transform: rotateY(180deg);
-}
-
-.coin > .front, .coin > .back {
-  backface-visibility: hidden;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.coin > .front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-
-.coin > .back {
-  transform: rotateY(180deg);
-}
-
-.outcome {
-  font-size: xx-large;
-  margin: 20px 5px;
-  font-weight: bold;
-
-  transition: color 0.3s;
-}
-
-.outcome.win {
-  color: #7aff7a;
-}
-.outcome.loss {
-  color: #ff6262;
 }

@@ -10,18 +10,23 @@ export default class GameView extends View
                 CHOOSE YOUR WEAPON
             </header>
             <main>
-                <section class="you">
-                    <h2>You</h2>
-                    <i class="symbol unknown"></i>
-                </section>
-
                 <section class="opponent">
                     <h2>Opponent</h2>
-                    <span class="coin">
-                        <span class="front"><i class="symbol unknown"></i></span>
-                        <span class="back"><i class="symbol unknown"></i></span>
-                    </span>
+                    <div class="symbols">
+                        <div class="coin">
+                            <span class="front"><i class="symbol unknown"></i></span>
+                            <span class="back"><i class="symbol unknown"></i></span>
+                        </div>
+                    </div>
                 </section>
+            
+                <section class="you">
+                    <h2>You</h2>
+                    <div class="symbols">
+                        <i class="symbol unknown"></i>
+                    </div>
+                </section>
+
             </main>
         `;
     }
@@ -33,7 +38,7 @@ export default class GameView extends View
         });
 
         // Append each symbol to the DOM
-        const list = document.querySelector('.you') as HTMLElement;
+        const list = document.querySelector('.you > .symbols') as HTMLElement;
         symbols.forEach((symbol) => list.appendChild(this.createSymbol(symbol)));
 
         // Add random as a constant at the end
