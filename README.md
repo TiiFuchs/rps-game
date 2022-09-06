@@ -3,9 +3,9 @@
 ## Learn
 
 ### Rock Paper Scissors (Default)
-- Rock crushes scissors
-- Scissors cuts paper
-- Paper covers rock
+- Rock crushes Scissors
+- Scissors cuts Paper
+- Paper covers Rock
 
 ### Rock Paper Scissors Lizard Spock (Extended)
 - Scissors cuts Paper
