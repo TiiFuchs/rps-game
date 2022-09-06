@@ -8,7 +8,7 @@ export default class StartView extends View
         return `
             <h1>Rock Paper Scissors</h1>
 
-            <p>Everyone knows this game... So don't ask.</p>
+            <p>You'll figure it out ;)</p>
 
             <section class="game-select">
                 <button class="start" data-game="rps">
