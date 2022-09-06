@@ -90,16 +90,21 @@ export default class GameView extends View
                 let element = event.currentTarget as HTMLElement;
                 let symbol = element.dataset.symbol!;
 
+                // Special case for random choice
                 if (symbol === 'random') {
                     const allSymbols = document.querySelectorAll('.you .symbol:not(.random)');
                     element = allSymbols[Math.floor(Math.random() * allSymbols.length)] as HTMLElement;
                     symbol = element.dataset.symbol!;
                 }
 
+                // Set "selected" class only on selected symbol
                 document.querySelectorAll('.symbol.selected').forEach((element) => {
                     element.classList.remove('selected');
                 });
                 element.classList.add('selected');
+
+                // Make other (not selected) symbols slightly transparent
+                document.querySelector('.you .symbols')!.classList.add('chosen');
 
                 closure(symbol);
             });

@@ -69,19 +69,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -124,11 +111,14 @@ main {
   opacity: 0.7;
 }
 
-.you:has(.symbol.selected) .symbol:not(.selected):not(.random) {
+/* 
+ * Could've been done with .you:has(.symbol.selected) but 
+ * :has is not yet available in all browsers. 
+ * See https://caniuse.com/css-has
+ */
+.symbols.chosen .symbol:not(.selected):not(.random) {
   opacity: 0.3;
 }
-
-
 
 
 .coin {
@@ -162,7 +152,6 @@ main {
 
 
 
-
 .outcome {
   font-size: xx-large;
   margin: 20px 5px;
@@ -172,10 +161,12 @@ main {
 }
 
 .outcome.win {
-  color: #7aff7a;
+  /* WCAG AAA */
+  color: #00D100;
 }
 .outcome.loss {
-  color: #ff6262;
+  /* WCAG AAA */
+  color: #FF4242;
 }
 
 
@@ -228,4 +219,29 @@ main {
 .random {
   background-image: url(/img/game_die_flat.svg);
   border-color: #e1d9ec;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  .outcome.win {
+    /* WCAG AAA */
+    color: #008A00;
+  }
+  .outcome.loss {
+    /* WCAG AAA */
+    color: #E00000;
+  }
+
+  .symbols.chosen .symbol:not(.selected):not(.random) {
+    opacity: 0.5;
+  }
 }
