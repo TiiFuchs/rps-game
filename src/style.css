@@ -134,11 +134,11 @@ main {
   transform: rotate(-90deg);
 }
 
-.scissor {
+.scissors {
   background-image: url(/img/victory_hand_flat_default.svg);
   transform: rotate(-90deg) scaleY(-1);
 }
-.opponent .scissor {
+.opponent .scissors {
   transform: rotate(-90deg);
 }
 

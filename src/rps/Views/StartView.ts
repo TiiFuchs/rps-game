@@ -6,7 +6,7 @@ export default class StartView extends View
     public render(): string
     {
         return `
-            <h1>Rock Paper Scissor</h1>
+            <h1>Rock Paper Scissors</h1>
 
             <p>Everyone knows this game... So don't ask.</p>
 

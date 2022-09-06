@@ -5,9 +5,9 @@ export default class RPSGame extends Logic
     constructor()
     {
         super({
-            'rock': ['scissor'],
+            'rock': ['scissors'],
             'paper': ['rock'],
-            'scissor': ['paper']
+            'scissors': ['paper']
         });
     }
 }

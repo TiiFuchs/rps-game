@@ -5,11 +5,11 @@ export default class RPSLSGame extends Logic
     constructor()
     {
         super({
-            'rock': ['scissor', 'lizard'],
+            'rock': ['scissors', 'lizard'],
             'paper': ['rock', 'spock'],
-            'scissor': ['paper', 'lizard'],
+            'scissors': ['paper', 'lizard'],
             'lizard': ['spock', 'paper'],
-            'spock': ['scissor', 'rock'],
+            'spock': ['scissors', 'rock'],
         });
     }
 }

@@ -7,19 +7,19 @@ const game = new RPSGame();
 it('draws from a set of three symbols', () => {
     for (let i = 0; i < 30; i++) {
         let symbol = game.draw();
-        expect(symbol).toBeIn(['rock', 'paper', 'scissor']);
+        expect(symbol).toBeIn(['rock', 'paper', 'scissors']);
     }
 });
 
 test.each([
-    ['rock', 'scissor', Result.Win],
-    ['scissor', 'paper', Result.Win],
+    ['rock', 'scissors', Result.Win],
+    ['scissors', 'paper', Result.Win],
     ['paper', 'rock', Result.Win],
     ['rock', 'rock', Result.Tie],
-    ['scissor', 'scissor', Result.Tie],
+    ['scissors', 'scissors', Result.Tie],
     ['paper', 'paper', Result.Tie],
-    ['scissor', 'rock', Result.Loss],
-    ['paper', 'scissor', Result.Loss],
+    ['scissors', 'rock', Result.Loss],
+    ['paper', 'scissors', Result.Loss],
     ['rock', 'paper', Result.Loss],
 ])('%s vs %s results in %s', (own, opponent, expected) => {
     expect(game.evaluate(own, opponent)).toBe(expected);
