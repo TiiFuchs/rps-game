@@ -40,10 +40,10 @@ and serve the dist folder.
 Alternatively run 
 
 ```
-docker compose up --build -d
+docker compose up --build
 ```
 
-from inside the project folder to get started as quickly as possible via Docker.
+from inside the project folder and open your browser at http://localhost:8080 to get started as quickly as possible via Docker.
 
 ## Develop
 
