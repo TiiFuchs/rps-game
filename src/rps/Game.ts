@@ -1,3 +1,5 @@
+import Logic from "./Logic/Logic";
+import RPSGame from "./Logic/RPSGame";
 import RPSLSGame from "./Logic/RPSLSGame";
 import GameView from "./Views/GameView";
 import StartView from "./Views/StartView";
@@ -14,14 +16,28 @@ export default class Game
     start() {
         const view = new StartView();
         view.attachToDom(this.appMount);
-        view.onBegin(() => this.startGame());
+        view.onBegin((game: string) => this.startGame(game));
     }
 
-    startGame() {
+    startGame(name: string) {
         const view = new GameView();
         view.attachToDom(this.appMount);
 
-        const game = new RPSLSGame();
+        let game: Logic;
+        switch (name) {
+            case "rps":
+                game = new RPSGame();
+                break;
+
+            case "rpsls":
+                game = new RPSLSGame();
+                break;
+
+            default:
+                console.error("Invalid Game selected.");
+                return;
+        }
+
         view.setSymbols(game.symbols);
 
         view.onClick((symbol: string) => {

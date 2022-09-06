@@ -69,6 +69,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.game-select {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.game-select button {
+  margin: 10px 2rem;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -90,6 +99,16 @@ main {
 
 .you .symbol {
   cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100%;
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
 }
 
 .symbol {
