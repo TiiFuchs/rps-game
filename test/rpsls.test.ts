@@ -4,7 +4,7 @@ import Outcome from '../src/rps/Outcome';
 
 const game = new RPSLSGame();
 
-it('draws from a set of five models', () => {
+it('draws from a set of five symbols', () => {
     for (let i = 0; i < 50; i++) {
         let symbol = game.draw();
         expect(symbol).toBeIn(['rock', 'paper', 'scissors', 'lizard', 'spock']);
