@@ -1,0 +1,32 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Run Tests
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: "tests"
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Build
+        run: |
+          npm install
+        
+      - name: Run Tests
+        run: npm run test
+          
+      - name: Run Coverage
+        run: npm run coverage
