@@ -31,13 +31,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Configure Pages
+      - id: config
+        name: Configure Pages
         uses: actions/configure-pages@v2
         
       - name: Build
         run: |
           npm install
-          npm run build -- --base=${{ steps.vars.outputs.base_path }}
+          npm run build -- --base=${{ steps.config.outputs.base_path }}
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
