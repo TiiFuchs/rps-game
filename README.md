@@ -29,7 +29,7 @@ Jump right in at https://tiifuchs.github.io/rps-game
 Build it yourself by running 
 
 ```
-npm install
+npm ci
 npm run build
 ```
 
