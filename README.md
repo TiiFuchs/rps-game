@@ -50,7 +50,7 @@ from inside the project folder and open your browser at http://localhost:8080 to
 If you want to work on the project run
 
 ```
-npm install
+npm ci
 npm run dev
 ```
 
